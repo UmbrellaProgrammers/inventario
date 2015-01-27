@@ -1,0 +1,79 @@
+#cssmenu2,
+#cssmenu2 ul,
+#cssmenu2 ul li,
+#cssmenu2 ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu2 {
+  width: auto;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+#cssmenu2.align-right ul li {
+  float: right;
+  border-right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.22);
+}
+#cssmenu2.align-right ul li a {
+  border-right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+#cssmenu2 ul {
+  background: #C0C0C0;
+}
+#cssmenu2:after,
+#cssmenu2 ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu2 ul li {
+  float: left;
+  display: block;
+  border-right: 1px solid rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+#cssmenu2 ul li::after {
+  content: "";
+  width: 100%;
+  height: 8px;
+  position: absolute;
+  border-top-left-radius: 50% 4px;
+  border-top-right-radius: 50% 4px;
+  z-index: 2;
+  bottom: 10px;
+}
+#cssmenu2 ul li a {
+  display: block;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 3;
+}
+#cssmenu2 ul li a:hover,
+#cssmenu2 ul li.active a {
+  color: #ffffff;
+}
+#cssmenu2 ul li:hover,
+#cssmenu2 ul li.active {
+  background: #1275ae;
+}
+#cssmenu2 ul li:hover::after,
+#cssmenu2 ul li.active::after {
+
+}

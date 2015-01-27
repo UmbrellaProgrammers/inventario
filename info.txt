@@ -1,0 +1,23 @@
+<h3>Nombre<h3>
+p id="p">     
+    <span class="espe">Marca:</span>Prueba Marca &nbsp;&nbsp;<span class="espe">Modelo:</span>Prueba Modelo
+	<br />
+    <span class="espe">Descripcion:</span>Esta es una breve descripcion
+    <br />
+    <span class="espe">Precio Nuevo:</span>$1000000<span class="espe">Precio Usado:</span>$1000000
+    <br />
+    <span class="espe">Vida:</span>3 a&tilde;os
+    <br />
+    <span class="espe">Barcode:</span>BarCode<span class="espe">Serial:</span>mxs-4885422
+    <br />
+    <span class="espe">Responsable:</span>Robinson Giraldo Naranjo
+    <br />
+    <span class="espe">Fecha Compra:</span>dd-mm-yyyy<span class="espe">Fecha garantia:</span>dd-mm-yyyy
+    <br />
+    <span class="espe">Tipo Garantia:</span>Pruebita
+    <br />
+    <span class="espe">Fecha Ingreso:</span>dd-mm-yyyy<span class="espe">Fecha Egreso:</span>dd-mm-yyyy
+    <br />
+    <hr />
+    span class="espe">Comentario:</span>esto es un supercomentario de prueba que es muy largo.
+</p>

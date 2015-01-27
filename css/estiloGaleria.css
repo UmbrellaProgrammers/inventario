@@ -1,0 +1,74 @@
+/* Circular Content Carousel Style */
+.ca-container{
+	position:relative;
+	margin: 6% 0px 0px 25%;
+	width:685px;
+	height:380px;
+}
+.ca-wrapper{
+	width:100%;
+	height:97%;
+	position:relative;
+	box-shadow: 1px 0px 6px 3px #7E7E7E;
+	-moz-box-shadow: 1px 0px 6px 3px #7E7E7E;
+	-webkitbox-shadow: 1px 0px 6px 3px #7E7E7E;
+}
+
+/*cada item*/
+.ca-item{
+	background:white;
+	position:relative;
+	float:left;
+	width:685px;
+	height:370px;
+}
+
+/*wraper*/
+.ca-content-wrapper{
+	background:#b0ccc6;
+	position:absolute;
+	width:0px; /* expands to width of the wrapper minus 1 element */
+	height:440px;
+	top:5px;
+	text-align:left;
+	z-index:10000;
+	overflow:hidden;
+}
+.ca-content{
+	width:660px;
+	overflow:hidden;
+}
+
+.ca-content h6{
+	margin:25px 20px 0px 35px;
+	font-size:32px;
+	padding-bottom:5px;
+	color:#000;
+	font-family: 'Coustard', sans-serif;
+	color:#60817a;
+	border-bottom:2px solid #99bcb4;
+	text-shadow: 1px 1px 1px #99BCB4;
+}
+
+/*las flechas*/
+.ca-nav span{
+	width:25px;
+	height:38px;
+	background:transparent url(images/arrows.png) no-repeat top left;
+	position:absolute;
+	top:50%;
+	margin-top:-19px;
+	left:-40px;
+	text-indent:-9000px;
+	opacity:0.7;
+	cursor:pointer;
+	z-index:100;
+}
+.ca-nav span.ca-nav-next{
+	background-position:top right;
+	left:auto;
+	right:-40px;
+}
+.ca-nav span:hover{
+	opacity:1.0;
+}
