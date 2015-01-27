@@ -11,7 +11,6 @@
 		<script src="js/script.js" type="text/javascript"></script>
 	</head>
 	<body>
-<h2>prueba</h2>
 	<div id='cssmenu' style="margin: -7px 0px 0px -7px;">
 		<ul>
 			<li id="li_home" class='active'>
