@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Inventario</title>
-		<h1></h1>
 		<meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,6 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="js/script.js" type="text/javascript"></script>
-		<h2></h2>
 	</head>
 	<body>
 
