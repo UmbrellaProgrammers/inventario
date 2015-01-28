@@ -5,7 +5,6 @@ $(document).on("pageinit", function(e) {
     sm.addClass('slidemenu');
 
     $(document).on("swipeleft swiperight", ".ui-page-active", function(e) {
-        console.log('b');
         e.stopImmediatePropagation();
         e.preventDefault();
         slidemenu(sm, sm.data('slideopen'));

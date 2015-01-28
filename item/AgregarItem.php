@@ -310,6 +310,12 @@
                         <div id="cid_25" class="form-input-wide">
                             <select class="form-dropdown" style="width:150px" id="estado" name="estado">
                                 <option value=""> Seleccionar... </option>
+                                <option value="Bueno"> Bueno </option>
+                                <option value="Dañado"> Dañado </option>
+                                <option value="Nuevo"> Nuevo </option>
+                                <option value="Perdido"> Perdido </option>
+                                <option value="Regular"> Regular </option>
+                                <option value="Robado"> Robado </option>
                             </select>
                         </div>
                     </li>
