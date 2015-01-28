@@ -1,5 +1,4 @@
-    `       
-	-<html style="overflow-x:hidden;">
+<html style="overflow-x:hidden;">
 	<head>
 		<link rel="stylesheet" href="../css/item.css">
 		<script src="../js/jquery-1.10.2.min.js"></script>
