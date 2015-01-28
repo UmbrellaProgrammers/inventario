@@ -305,6 +305,14 @@
                             <input type="date" id="fechaEgreso" name="fechaEgreso">
                         </div>
                     </li>
+                    <li class="form-line form-line-column form-col-11" data-type="control_dropdown" id="id_25">
+                        <label class="form-label form-label-top" id="label_25" for="estado"> Estado </label>
+                        <div id="cid_25" class="form-input-wide">
+                            <select class="form-dropdown" style="width:150px" id="estado" name="estado">
+                                <option value=""> Seleccionar... </option>
+                            </select>
+                        </div>
+                    </li>
                     <li class="form-line" data-type="control_textarea" id="id_28">
                         <label class="form-label form-label-left form-label-auto" id="label_28" for="comentarios"> Comentarios </label>
                         <div id="cid_28" class="form-input">
