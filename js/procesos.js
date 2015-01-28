@@ -1,7 +1,10 @@
 //Renderea en la pagina el div info general cuando carga la pagina
 function cargarInfo(){
 	var template = $('#template-info').html();
-	var rendered = Mustache.render(template);
+	var data = {
+		foto : imagen
+	};
+	var rendered = Mustache.render(template,data);
 	$('#ca-container').append(rendered);
 }
 

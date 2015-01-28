@@ -140,6 +140,8 @@
 			<div class="ca-wrapper">
 				<div id="info" class="ca-item" style="background:white;">
 					<div class="image-upload" style="height: 400px;float: right;margin: 15px 5px 0px 0px;">
+						<label for="file-input">
+							<img style="cursor:pointer;width:250px" src="{{foto}}" alt="Imagen por defecto"/>
 						<label for="file-input" style="">
 							<img style="cursor:pointer;width:250px" src="../css/images/insert_image.png" alt="Imagen por defecto"/>
 						</label>
