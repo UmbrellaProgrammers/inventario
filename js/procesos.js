@@ -95,6 +95,10 @@ function seleccionado(category){
 	$('#b_activos').removeClass("active_activos");
 	$('#img_edit').css({"margin":"0px 30px 0px 42%"});
 	$('#img_notes').css({"margin":"10px 0px 0px 10px"});
+	$('#li_archi').css({"pointer-events":"none"});
+	$('#li_info').addClass("active");
+	$('#li_archi').removeClass("active");
+	$('#a_archi').css({"color":"gray"});
 	var obj=hallarObj(category);
 	var cats = $("a",panel.document);
 	var aux = "";
@@ -199,11 +203,9 @@ function activo(cat,obj,n,flag) {
 	cont = cont*n;
 	if (cont % 2 == 0 && flag==false) {
 		$('#b_activos').addClass("active_activos");
-		$('#li_archi').css({"display":"block"});
 		listar(cat,obj,true,1);
 	} else {
 		$('#b_activos').removeClass("active_activos");
-		$('#li_archi').css({"display":"none"});
 		listar(cat,obj,false,0);
 	}
 	cont++;
@@ -231,6 +233,8 @@ function list_inv(response){
 
 function seleccionado2(slct){
 	removerGaleria();
+	$('#li_archi').css({"pointer-events":"all"});
+	$('#a_archi').removeAttr('style');
 	var items = $("#cont_cat > a");
 	var aux = "";
 	for(var i=0;i<items.length;i++){

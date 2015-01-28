@@ -69,8 +69,8 @@
 								<span>Informaci&oacute;n</span>
 							</a>
 						</li>
-						<li id="li_archi" class='last' style="height: 35px; display:none;">
-							<a href='#' onclick="menu2(1)">
+						<li id="li_archi" class='last' style="height: 35px;pointer-events:none;">
+							<a href='#' id="a_archi" onclick="menu2(1)" style="color:gray;">
 								<span>Archivos</span>
 							</a>
 						</li>
