@@ -18,6 +18,34 @@ $(document).ready(function() {
 	});
 });
 
+function subirImagen(){
+	var input = $('#file-input');
+	formdata = new FormData();
+	
+	input.change(function(){
+		console.log("hola");
+		var file =  input[0].files[0];
+		var nombreFile = file.name;
+		var extension = nombreFile.substring(nombreFile.lastIndexOf('.') + 1);
+		if (formdata){
+			formdata.append('images', file);
+            $.ajax({
+                url : '../item/upload.php',
+                type : 'POST',
+                data : formdata,
+                processData : false, 
+                contentType : false, 
+                success : function(res){
+                    console.log(res);
+                },
+				error : function(){
+					console.log("no funciono");
+				}
+            });
+        };
+	})
+}
+
 function frame(){
 	var select = $('#filtro').val();
 	if(select == "lugar") {
@@ -61,6 +89,7 @@ function remove_cat(){
 function seleccionado(category){
 	removerGaleria();
 	cargarInfo();
+	subirImagen();
 	$('#ca-container').find('.ca-nav').remove();
 	$('#activos').css({"display":"none"});
 	$('#b_activos').removeClass("active_activos");

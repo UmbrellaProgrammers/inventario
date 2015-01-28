@@ -23,7 +23,7 @@
 		<link rel="stylesheet" href="../css/jquery.mobile.structure.min.css" />
 		<link rel="stylesheet" href="../css/style.min.css">
 		<link rel="stylesheet" href="../css/frame.css">
-		
+	
 		<script type="text/javascript" src="../js/Mustache.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="../js/item.js" type="text/javascript"></script>
@@ -130,8 +130,7 @@
 		</div>
 		
 		<script type="text/javascript" src="../js/jquery.bpopup-0.10.0.min.js"></script>
-		<script type="text/javascript" src="../js/scripting.min.js"></script>
-		
+		<script type="text/javascript" src="../js/scripting.min.js"></script>	
 		<!-- Script de la galeria -->
 		<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 		<!-- the jScrollPane script -->
@@ -144,7 +143,7 @@
 						<label for="file-input" style="">
 							<img style="cursor:pointer;width:250px" src="../css/images/insert_image.png" alt="Imagen por defecto"/>
 						</label>
-						<input id="file-input" type="file" accept="image/*" style="display:none;" />
+						<input id="file-input" type="file" accept="image/*" name="images" style="display:none;" />
 						</br>
 					</div>	
 				</div>
@@ -156,7 +155,7 @@
 					<label for="file-input" style="">
 						<img style="cursor:pointer;width: 250px;height: 257px;" src="{{foto}}" alt="Imagen del item"/>
 					</label>
-					<input id="file-input" type="file" accept="image/*" style="display:none;" />
+					<input id="file-input" type="file" accept="image/*" name="images" style="display:none;" />
 					<br />
 				</div>
 				<h3 class="info nomItem">{{nombre}}<h3>
