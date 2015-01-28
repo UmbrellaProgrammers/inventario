@@ -1,9 +1,3 @@
-<?php
-if (preg_match("(MSIE)", $_SERVER['HTTP_USER_AGENT']))
-{
-    echo "Cambia de explorador por tu bien y el nuestro";
-}else{
-?>
 <!doctype html>
 <html>
 	<head>
@@ -44,6 +38,3 @@ if (preg_match("(MSIE)", $_SERVER['HTTP_USER_AGENT']))
 <!---<footer>&copy; Todos los derechos reservados UltraViajes S.A.S</footer>-->
 </body>
 <html>
-<?php
-}
-?>
