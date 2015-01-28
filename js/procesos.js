@@ -8,7 +8,6 @@ function cargarInfo(imagen){
 	$('#ca-container').append(rendered);
 }
 
-
 $(document).ready(function() {
 	cargarInfo("../css/images/insert_image.png");
 	$('#close').click(function(){
