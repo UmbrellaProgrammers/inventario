@@ -1,5 +1,5 @@
 //Renderea en la pagina el div info general cuando carga la pagina
-function cargarInfo(){
+function cargarInfo(imagen){
 	var template = $('#template-info').html();
 	var data = {
 		foto : imagen
@@ -9,7 +9,7 @@ function cargarInfo(){
 }
 
 $(document).ready(function() {
-	cargarInfo();
+	cargarInfo("../css/images/insert_image.png");
 	$('#close').click(function(){
 		$("#panel").attr('src','panel.php');
 	});
@@ -91,8 +91,8 @@ function remove_cat(){
 
 function seleccionado(category){
 	removerGaleria();
-	cargarInfo();
-	subirImagen();
+	cargarInfo("../css/images/remove.png");
+	subirImagen("");
 	$('#ca-container').find('.ca-nav').remove();
 	$('#activos').css({"display":"none"});
 	$('#b_activos').removeClass("active_activos");
