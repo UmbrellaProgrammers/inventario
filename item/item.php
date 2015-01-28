@@ -34,7 +34,6 @@
 		<script type="text/javascript" src="../js/procesos.js"></script>
 	</head>
 	<body>
-                
 		<div id="slidemenu" style="overflow:hidden;z-index: 1111;">
 			<div class="select">
 				<select name="filtro" id="filtro" onchange="frame()">
