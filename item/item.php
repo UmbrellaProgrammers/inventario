@@ -178,7 +178,9 @@
 					<span class="informacion">Tipo Garantia:&nbsp;</span>{{tipoGarantia}}
 					<br />
 					<span class="informacion">Fecha Ingreso:&nbsp;</span>{{fechaIngreso}}&nbsp;&nbsp;<span class="informacion">Fecha Egreso:&nbsp;</span>{{fechaEgreso}}
-					</br>
+					<br />
+					<span class="informacion">Estado:&nbsp;</span>{{estado}}
+					<br />
 					<span class="informacion">Comentario:&nbsp;</span>{{comentario}}
 					<br />
 				</p>

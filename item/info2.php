@@ -1,7 +1,7 @@
 <?php
 	include "../connection.php";
 	
-	$query = mysql_query("SELECT * FROM activo inner join inventario on activo.id = inventario.activo where subcategoria = '".$_POST['item']."' and ".$_POST['tabla']."= '".$_POST['categoria']."'");
+	$query = mysql_query("SELECT * FROM activo inner join inventario on activo.id = inventario.activo inner join historial_estado on inventario.id = historial_estado.inventario where subcategoria = '".$_POST['item']."' and ".$_POST['tabla']."= '".$_POST['categoria']."'");
 	
 	$i = 0;
 	$data = array();

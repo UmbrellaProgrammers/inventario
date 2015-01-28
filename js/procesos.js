@@ -273,6 +273,7 @@ function loadUser(data) {
 			tipoGarantia : data[i].tipo_garantia,
 			fechaIngreso : data[i].fecha_ingreso,
 			fechaEgreso : data[i].fecha_egreso,
+			estado : data[i].estado,
 			comentario : data[i].comentario_inventario
 		};
 		
