@@ -140,7 +140,7 @@
 				<div id="info" class="ca-item" style="background:white;">
 					<div class="image-upload" style="height: 400px;float: right;margin: 15px 5px 0px 0px;">
 						<label for="file-input">
-							<img style="cursor:pointer;width:250px" src="{{foto}}" alt="Imagen por defecto"/>
+							<img id="imagen" style="cursor:pointer;width:250px" src="{{foto}}" alt="Imagen"/>
 						</label>
 						<input id="file-input" type="file" accept="image/*" name="images" style="display:none;" />
 						</br>

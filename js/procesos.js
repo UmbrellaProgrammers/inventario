@@ -21,17 +21,19 @@ $(document).ready(function() {
 	});
 });
 
-function subirImagen(){
+function subirImagen(cat,tabla){
 	var input = $('#file-input');
 	formdata = new FormData();
 	
 	input.change(function(){
-		console.log("hola");
 		var file =  input[0].files[0];
 		var nombreFile = file.name;
 		var extension = nombreFile.substring(nombreFile.lastIndexOf('.') + 1);
 		if (formdata){
 			formdata.append('images', file);
+			formdata.append('nom', cat);
+			formdata.append('ext', extension);
+			formdata.append('tabla', tabla );
             $.ajax({
                 url : '../item/upload.php',
                 type : 'POST',
@@ -109,8 +111,6 @@ function remove_subCat(){
 
 function seleccionado(category){
 	removerGaleria();
-	cargarInfo("../css/images/remove.png");
-	subirImagen("");
 	$('#ca-container').find('.ca-nav').remove();
 	$('#activos').css({"display":"none"});
 	activo('1','',1,true);
@@ -153,20 +153,34 @@ function peticion(cat, table){
 		url:   'info.php',
         type:  'post',
         success:  function (response) {
-			informacion(response);    
+			informacion(response,cat,table);    
 		}
     });
 	
 }
 
-function informacion(response){
-	var info = $("#info");
+function informacion(response,cat,tabla){
+	var imagen;
+	var ban = 0;
 	data = response.split(';');
 	var string = "<h2 id='lala' style='margin:0px 10px;font-weight:bold'>"+String(data[0])
 		+"</h2><p id='info_p' style='margin:0px 10px;font-weight:bold'>"+String(data[1])
 		+"<br />"+String(data[2])+"<br />"+String(data[3])+"</p>";
+	if (data[4]==""){
+		imagen = "../css/images/insert_image.png";
+	}else{
+		ban = 1;
+		imagen = String(data[4]);
+	}
+	cargarInfo(imagen);
+	var info = $("#info");
+	if (ban!=0) {
+		info.find('#file-input').remove(); 
+		var img = info.find('img');
+		img.css('cursor','default');
+	}
 	$(string).hide().appendTo(info).fadeIn(500);
-	//info.append(string);
+	subirImagen(cat,tabla);
 }
 
 //listar activos
@@ -292,7 +306,6 @@ function busqueda(item, cat, tabla){
         success:  function (response) {
 			//se formate el json como un array de objetos
 			var json = eval(response);
-			//console.log(json);
 			loadUser(json);
 		}
     });
@@ -331,8 +344,6 @@ function loadUser(data) {
 			estado : data[i].estado,
 			comentario : data[i].comentario_inventario
 		};
-		
-		
 		var rendered = Mustache.render(template, datos);
 		$(rendered).hide().appendTo('.ca-wrapper').fadeIn(500);
 		//$('.ca-wrapper').append(rendered);
