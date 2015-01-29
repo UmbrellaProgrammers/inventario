@@ -48,7 +48,7 @@
 				<a href="" id="my-button" class="small pop1">
 					<img style="margin: 0px -1px -8px 4px; cursor: pointer;" src='../css/images/plus2.png'>
 				</a>
-				<a id="remove_cat" onclick="remove_cat();">
+				<a id="remove_cat" onclick="remove_cat(1);">
 					<img style="margin: 4px 1px -8px -5px; cursor: pointer;" src='../css/images/minus2.png'>
 				</a>
 				<a id="b_activos" class="border a-boton" onclick="activo('','',1,true)">Activos</a>
@@ -83,7 +83,7 @@
 						<a href="" id="my-button2">
 							<img style="margin: 0px -1px -8px 4px; cursor: pointer;" src='../css/images/plus2.png'>
 						</a>
-						<a id="remove_cat2" onclick="">
+						<a id="remove_cat2" onclick="remove_subCat();">
 							<img style="margin: 4px 1px -8px -5px; cursor: pointer;" src='../css/images/minus2.png'>
 						</a>
 					</div>
@@ -101,7 +101,7 @@
 					<a onclick="alert('Editar');">
 						<img id="img_edit" src="../css/images/edit.png" style="margin: 0px 30px 0px 42%; cursor: pointer;">
 					</a>
-					<a onclick="remove_cat();">
+					<a onclick="remove_cat(2);">
 						<img src="../css/images/remove.png" style="margin: 0px 0px 1x 0px; cursor: pointer;">
 					</a>
 				</div>
@@ -144,7 +144,7 @@
 						</label>
 						<input id="file-input" type="file" accept="image/*" name="images" style="display:none;" />
 						</br>
-					</div>	
+					</div>
 				</div>
 			</div>
 		</script>

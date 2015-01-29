@@ -66,27 +66,45 @@ function removerGaleria(){
 	$('.ca-wrapper').remove();
 }
 
-function remove_cat(){
-	var cat = $("a",panel.document);
-	var select = $('#filtro').val();
-	if(select == "lugar") {
-		select = "departamento";
-	}
-	var remove = true;
-	var i=0;
-	while(i < cat.length && remove == true){
-		if(cat[i].className == "a-select seleccionado"){
-			if(confirm("¿Realmente deseas eliminar esta categoría?")){
-				window.location = "item.php?categoria="+cat[i].name+"&select="+select;
+function remove_cat(n){
+	var flag = false;
+	if($('#b_activos').className == "border a-boton active_activos"){
+		var items = $("#cont_cat > a");
+		var aux = "";
+		for(var i=0;i<items.length;i++){
+			if(item[i].className == "a-select seleccionado"){
+				flag = true;
 			}
+		}
+	}
+	if(n == 2 && flag == false){
+		remove_subCat();
+	}else{
+		var cat = $("a",panel.document);
+		var select = $('#filtro').val();
+		if(select == "lugar") {
+			select = "departamento";
+		}
+		var remove = true;
+		var i=0;
+		while(i < cat.length && remove == true){
+			if(cat[i].className == "a-select seleccionado"){
+				if(confirm("¿Realmente deseas eliminar esta categoría?")){
+					window.location = "item.php?categoria="+cat[i].name+"&select="+select;
+				}
+				remove = false;
+			}
+			i++;
+		}
+		if(remove){
+			alert("No se ha seleccionado nada");
 			remove = false;
 		}
-		i++;
 	}
-	if(remove){
-		alert("No se ha seleccionado nada");
-		remove = false;
-	}
+}
+
+function remove_subCat(){
+	confirm("<b>¿Realmente deseas eliminar esta categoría?</b>\n\nlala");
 }
 
 function seleccionado(category){
@@ -95,6 +113,7 @@ function seleccionado(category){
 	subirImagen("");
 	$('#ca-container').find('.ca-nav').remove();
 	$('#activos').css({"display":"none"});
+	activo('1','',1,true);
 	$('#b_activos').removeClass("active_activos");
 	$('#img_edit').css({"margin":"0px 30px 0px 42%"});
 	$('#img_notes').css({"margin":"10px 0px 0px 10px"});
