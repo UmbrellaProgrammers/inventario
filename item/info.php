@@ -1,9 +1,10 @@
 <?php
 	include "../connection.php";
-	$query = mysql_query("select ".$_POST['tabla']." from ".$_POST['tabla']." where ".$_POST['tabla']." = '".$_POST['categoria']."'") or die("Error en: ".mysql_error());
+	$query = mysql_query("select ".$_POST['tabla'].", imagen from ".$_POST['tabla']." where ".$_POST['tabla']." = '".$_POST['categoria']."'") or die("Error en: ".mysql_error());
 	
 	while($row = mysql_fetch_array($query)){
 		$resultado = $row[$_POST['tabla']];
+		$imagen = $row['imagen'];
 	}
 /*	
 	if($_POST['tabla'] == "categoria"){
@@ -30,5 +31,5 @@
 		}
 	}
 	
-	echo $resultado.';Cantidad: '.$cantidad.';<br />Costo Total: $'.$total.';<br />Precio ahora: $'.$valor;
+	echo $resultado.';Cantidad: '.$cantidad.';<br />Costo Total: $'.$total.';<br />Precio ahora: $'.$valor.";".$imagen;
 ?>
