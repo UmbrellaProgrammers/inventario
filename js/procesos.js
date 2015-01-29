@@ -1,3 +1,4 @@
+
 //Renderea en la pagina el div info general cuando carga la pagina
 function cargarInfo(imagen){
 	var template = $('#template-info').html();
@@ -19,13 +20,19 @@ $(document).ready(function() {
 			cat[i].onclick = function(){seleccionado(this)};
 		}
 	});
+	
+	$('#file-input').change(function(){
+		alert('cambie');
+	});
 });
 
-function subirImagen(cat,tabla){
+function subirImagen(cat,tabla,id,opcion){
+	//console.log('entre');
 	var input = $('#file-input');
 	formdata = new FormData();
 	
 	input.change(function(){
+		//console.log('cambio');
 		var file =  input[0].files[0];
 		var nombreFile = file.name;
 		var extension = nombreFile.substring(nombreFile.lastIndexOf('.') + 1);
@@ -34,6 +41,8 @@ function subirImagen(cat,tabla){
 			formdata.append('nom', cat);
 			formdata.append('ext', extension);
 			formdata.append('tabla', tabla );
+			formdata.append('id', id);
+			formdata.append('opcion', opcion);
             $.ajax({
                 url : '../item/upload.php',
                 type : 'POST',
@@ -161,7 +170,7 @@ function informacion(response,cat,tabla){
 		img.css('cursor','default');
 	}
 	$(string).hide().appendTo(info).fadeIn(500);
-	subirImagen(cat,tabla);
+	//subirImagen(cat,tabla,"",0);
 }
 
 //listar activos
@@ -296,15 +305,20 @@ function busqueda(item, cat, tabla){
 
 //Funcion permite cargar la informacion de cada uno de los item traidos de la consulta
 function loadUser(data) {
+	var ban = 0;
 	var i=0;
 	var div = $('<div />',{'class' : 'ca-wrapper'});
 	$('#ca-container').append(div);
 	numeroItems = data.length;
-	
 	//por cada item del json se renderea el template con la informacion del item
 	for (i in data){
 		var template = $('#template-ca-item').html();
-		if (data[i].foto == "") data[i].foto = "../css/images/insert_image.png";
+		/*console.log("hola");
+		if (data[i].foto == ""){
+			console.log(data[i].foto);
+			data[i].foto = "../css/images/insert_image.png";
+			subirImagen(data[i].id,"",data[i].id,1);
+		}*/
 		var datos = {
 			foto : data[i].foto,
 			nombre : data[i].subcategoria,
@@ -327,11 +341,9 @@ function loadUser(data) {
 		};
 		var rendered = Mustache.render(template, datos);
 		$(rendered).hide().appendTo('.ca-wrapper').fadeIn(500);
-		//$('.ca-wrapper').append(rendered);
 	}
 	
 	$('.ca-wrapper').contentcarousel();
-	
 	//borrar las flechas de navegacion
 	if (numeroItems == 1) {
 		$('#ca-container').find('.ca-nav').remove();
