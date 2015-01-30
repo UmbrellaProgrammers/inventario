@@ -50,9 +50,9 @@
 				if( this.length ) {
 					
 					var settings = {
-						sliderSpeed		: 2000,			// speed for the sliding animation
+						sliderSpeed		: 500,			// speed for the sliding animation
 						sliderEasing	: 'easeOutExpo',// easing for the sliding animation
-						itemSpeed		: 2000,			// speed for the item animation (open / close)
+						itemSpeed		: 500,			// speed for the item animation (open / close)
 						itemEasing		: 'easeOutExpo',// easing for the item animation (open / close)
 						scroll			: 1				// number of items to scroll at a time
 					};

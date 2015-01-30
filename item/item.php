@@ -149,7 +149,7 @@
 			</div>
 		</script>
 		<script id="template-ca-item" type="x-tmpl-mustache">
-			<div id="info-ca-item" class="ca-item" style="background:white;border:1px solid black">
+			<div id="info-ca-item{{id}}" class="ca-item" style="background:white;border:1px solid black">
 				<div class="image-upload" style="float: right;margin: 15px 5px 0px 0px;">
 					<label for="file-input" style="">
 						<img style="cursor:pointer;width: 250px;height: 257px;" src="{{foto}}" alt="Imagen del item"/>
