@@ -20,14 +20,10 @@ $(document).ready(function() {
 			cat[i].onclick = function(){seleccionado(this)};
 		}
 	});
-	
-	$('#file-input').change(function(){
-		alert('cambie');
-	});
 });
 
 function subirImagen(cat,tabla,id,opcion){
-	//console.log('entre');
+	console.log(opcion);
 	var input = $('#file-input');
 	formdata = new FormData();
 	
@@ -183,13 +179,14 @@ function informacion(response,cat,tabla){
 	}
 	cargarInfo(imagen);
 	var info = $("#info");
+	var img = info.find('img');
+	var input = info.find('input');
 	if (ban!=0) {
-		info.find('#file-input').remove(); 
-		var img = info.find('img');
+		input.remove();
 		img.css('cursor','default');
 	}
 	$(string).hide().appendTo(info).fadeIn(500);
-	//subirImagen(cat,tabla,"",0);
+	if (ban==0) img.attr('onclick','subirImagen("'+cat+'","'+tabla+'","",0)');
 }
 
 //listar activos
@@ -300,6 +297,7 @@ function seleccionado2(slct){
 }
 
 
+
 //Esta funcion permite realizar la busqueda del item seleccionado
 function busqueda(item, cat, tabla){
 	var parametros = {
@@ -332,13 +330,12 @@ function loadUser(data) {
 	//por cada item del json se renderea el template con la informacion del item
 	for (i in data){
 		var template = $('#template-ca-item').html();
-		/*console.log("hola");
 		if (data[i].foto == ""){
-			console.log(data[i].foto);
+			ban = 1;
 			data[i].foto = "../css/images/insert_image.png";
-			subirImagen(data[i].id,"",data[i].id,1);
-		}*/
+		}
 		var datos = {
+			id : data[i].activo,
 			foto : data[i].foto,
 			nombre : data[i].subcategoria,
 			marca : data[i].marca,
@@ -360,6 +357,16 @@ function loadUser(data) {
 		};
 		var rendered = Mustache.render(template, datos);
 		$(rendered).hide().appendTo('.ca-wrapper').fadeIn(500);
+		var img = $('#info-ca-item'+datos.id).find('img');
+		if (ban==0){
+			$('#info-ca-item'+datos.id).find('input').remove();
+			$('#info-ca-item'+datos.id).find('label').removeAttr('for');
+			img.css('cursor','default');
+		}else{
+			var id = parseInt(datos.id);
+			img.attr('onclick','subirImagen('+datos.id+',"",'+id+',1)');
+		}
+		ban = 0;
 	}
 	
 	$('.ca-wrapper').contentcarousel();
@@ -367,9 +374,11 @@ function loadUser(data) {
 	if (numeroItems == 1) {
 		$('#ca-container').find('.ca-nav').remove();
 	}
+	
+	
 }
-	
-	
+
+
 function consultaCat(){
 	var aux = $("a",panel.document);
 	var flag = true;
