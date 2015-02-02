@@ -4,7 +4,7 @@
 	
 	while($row = mysql_fetch_array($query)){
 		$resultado = $row[$_POST['tabla']];
-		$imagen = $row['imagen'];
+		$imagen = utf8_encode($row['imagen']);
 	}
 /*	
 	if($_POST['tabla'] == "categoria"){

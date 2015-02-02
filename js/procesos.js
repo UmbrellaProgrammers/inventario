@@ -156,7 +156,7 @@ function informacion(response,cat,tabla){
 		imagen = "../css/images/insert_image.png";
 	}else{
 		ban = 1;
-		imagen = String(data[4]);
+		imagen = data[4];
 	}
 	cargarInfo(imagen);
 	var info = $("#info");
@@ -277,8 +277,6 @@ function seleccionado2(slct){
 	busqueda(slct.name, cat.name, tabla);
 }
 
-
-
 //Esta funcion permite realizar la busqueda del item seleccionado
 function busqueda(item, cat, tabla){
 	var parametros = {
@@ -294,24 +292,25 @@ function busqueda(item, cat, tabla){
         success:  function (response) {
 			//se formate el json como un array de objetos
 			var json = eval(response);
-			loadUser(json);
+			loadItems(json);
 		}
     });
 	
 }
 
-
 //Funcion permite cargar la informacion de cada uno de los item traidos de la consulta
-function loadUser(data) {
+function loadItems(data) {
 	var ban = 0;
-	var i=0;
+	var i = 0;
 	var div = $('<div />',{'class' : 'ca-wrapper'});
 	$('#ca-container').append(div);
 	numeroItems = data.length;
 	//por cada item del json se renderea el template con la informacion del item
+	var template = $('#template-ca-item').html();
 	for (i in data){
-		var template = $('#template-ca-item').html();
+		
 		if (data[i].foto == ""){
+			console.log(i)
 			ban = 1;
 			data[i].foto = "../css/images/insert_image.png";
 		}
@@ -339,26 +338,39 @@ function loadUser(data) {
 		var rendered = Mustache.render(template, datos);
 		$(rendered).hide().appendTo('.ca-wrapper').fadeIn(500);
 		var img = $('#info-ca-item'+datos.id).find('img');
-		if (ban==0){
-			$('#info-ca-item'+datos.id).find('input').remove();
-			$('#info-ca-item'+datos.id).find('label').removeAttr('for');
-			img.css('cursor','default');
-		}else{
+		//console.log(img);
+		if (ban!=0){
+			//
+			console.log(img);
 			var id = parseInt(datos.id);
+			console.log(id);
 			img.attr('onclick','subirImagen('+datos.id+',"",'+id+',1)');
 		}
 		ban = 0;
 	}
 	
 	$('.ca-wrapper').contentcarousel();
+	removerInput();
 	//borrar las flechas de navegacion
 	if (numeroItems == 1) {
 		$('#ca-container').find('.ca-nav').remove();
 	}
-	
-	
 }
 
+function removerInput(){
+	var img;
+	$('div .ca-item').each(function(i,el){
+		img = $(this).find('img');
+		var src = img.attr('src');
+		if (src != '../css/images/insert_image.png'){
+			$(this).find('input').remove();
+			$(this).find('label').removeAttr('for');
+			img.css('cursor','default');
+			//console.log(src);
+		}//else{console.log(src);}
+		
+	});
+}
 
 function consultaCat(){
 	var aux = $("a",panel.document);

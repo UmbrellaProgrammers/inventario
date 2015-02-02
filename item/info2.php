@@ -11,6 +11,6 @@
 	}
 		
 	//echo $resultado;
-	echo json_encode($data);
+	echo utf8_decode(json_encode($data));
 ?>
 
