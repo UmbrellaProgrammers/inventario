@@ -22,11 +22,11 @@ $(document).ready(function() {
 	});
 });
 
-function subirImagen(cat,tabla,id,opcion){
-	console.log(opcion);
+//funcion que permite Subir Imagenes al servidor
+function subirImagen(cat,tabla,id,opcion,img){
+	
 	var input = $('#file-input');
 	formdata = new FormData();
-	
 	input.change(function(){
 		//console.log('cambio');
 		var file =  input[0].files[0];
@@ -46,7 +46,7 @@ function subirImagen(cat,tabla,id,opcion){
                 processData : false, 
                 contentType : false, 
                 success : function(res){
-                    console.log(res);
+                    img.src=res;
                 },
 				error : function(){
 					console.log("no funciono");
@@ -186,7 +186,7 @@ function informacion(response,cat,tabla){
 		img.css('cursor','default');
 	}
 	$(string).hide().appendTo(info).fadeIn(500);
-	if (ban==0) img.attr('onclick','subirImagen("'+cat+'","'+tabla+'","",0)');
+	if (ban==0) img.attr('onclick','subirImagen("'+cat+'","'+tabla+'","",0,"")');
 }
 
 //listar activos
@@ -329,7 +329,6 @@ function loadItems(data) {
 	for (i in data){
 		
 		if (data[i].foto == ""){
-			console.log(i)
 			ban = 1;
 			data[i].foto = "../css/images/insert_image.png";
 		}
@@ -356,14 +355,10 @@ function loadItems(data) {
 		};
 		var rendered = Mustache.render(template, datos);
 		$(rendered).hide().appendTo('.ca-wrapper').fadeIn(500);
-		var img = $('#info-ca-item'+datos.id).find('img');
-		//console.log(img);
+		var img = $('#info-ca-item'+datos.barcode).find('img');
 		if (ban!=0){
-			//
-			console.log(img);
 			var id = parseInt(datos.id);
-			console.log(id);
-			img.attr('onclick','subirImagen('+datos.id+',"",'+id+',1)');
+			img.attr('onclick','subirImagen('+datos.id+',"",'+id+',1,this)');
 		}
 		ban = 0;
 	}
